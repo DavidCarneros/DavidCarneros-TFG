@@ -795,6 +795,22 @@
       <Project>{B475E557-6E40-411F-8E7B-10B31F66FFA3}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.UnityAR.ConfigCheck</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Services.InputSimulation.csproj">
       <Project>{F52BB947-C897-489E-515D-86D159235DBB}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.InputSimulation</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.Gltf.Inspectors.csproj">
+      <Project>{50FE4C4F-C768-1DDB-91B9-27FFADD2F0BA}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.Gltf.Inspectors</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.Gltf.csproj">
+      <Project>{0ED69522-8BAB-A0B6-3FE1-9DDD15B79154}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.Gltf</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.UX.Interactables.csproj">
+      <Project>{6FC551BC-DAA7-31DF-3FBD-091B01BC2496}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.UX.Interactables</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.InspectorFields.Inspectors.csproj">
+      <Project>{0DDC93F2-A7D8-B5E3-1D7D-076CACA92BCF}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.InspectorFields.Inspectors</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Examples.Editor.Inspectors.csproj">
+      <Project>{51DBF2EE-50AA-C66F-87A7-177DEC7F31ED}</Project>      <Name>Microsoft.MixedReality.Toolkit.Examples.Editor.Inspectors</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.InspectorFields.csproj">
+      <Project>{726E40D2-F6A5-E065-8F2D-65E08DEE6DC1}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.InspectorFields</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.StandardShader.Inspectors.csproj">
+      <Project>{D91F63A4-BFAE-C67C-2810-F6F9A70359D5}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.StandardShader.Inspectors</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.MixedReality.Toolkit.Examples.csproj">
+      <Project>{F0BC8509-089D-EE19-FD27-41427172FCD3}</Project>      <Name>Microsoft.MixedReality.Toolkit.Examples</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

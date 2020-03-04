@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InputName : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class InputName : MonoBehaviour
     void Start()
     {
         keyboardVisible = false;
-        text = GameObject.Find("textName");
+    //    m_TextComponent = GameObject.Find("textName").GetComponent<TMP_text>();
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class InputName : MonoBehaviour
         if(!keyboardVisible){
             keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
             keyboardVisible = true;
-            text.GetComponent<TextMeshPro>().text = keyboard.area;
+          //  m_TextComponent.text = keyboard.area;
         }
         else {
             
