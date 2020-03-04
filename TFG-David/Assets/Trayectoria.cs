@@ -41,10 +41,10 @@ public class Trayectoria : MonoBehaviour
         // Aqui se deberia comprrobar si esta o no la mano siendo vista 
         // Cunando no se esta viendo mesh renderer esta a false 
 
-        if(p_points.Count == 10){
-            this.recording = false;
-            this.drawLine();
-        }
+       // if(p_points.Count == 10){
+       //     this.recording = false;
+       //     this.drawLine();
+       // }
 
         if(recording) {
         //    point.GetComponent<Renderer>().enabled = true;
