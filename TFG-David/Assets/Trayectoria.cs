@@ -27,6 +27,7 @@ public class Trayectoria : MonoBehaviour
     float exact;
     string hand;
     //
+    Exercise exer_aux;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +57,6 @@ public class Trayectoria : MonoBehaviour
        // }
 
         if(recording) {
-        //    point.GetComponent<Renderer>().enabled = true;
             position = palmPointer.transform.position;
             palmPointer.GetComponent<MeshRenderer>().material.color = Color.green;
 
@@ -81,14 +81,31 @@ public class Trayectoria : MonoBehaviour
 
     public void SetRecording(bool rec) {
         this.recording = rec;
+        if(rec) {
+            this.exer_aux = new Exercise();
+        }
     }
 
     public void setDrawLine(){
             this.drawLine();
     }
 
-    void drawLine() {
+    public void drawLine() {
+
+        this.exer_aux.points = p_points;
+
         tubeRenderer.GetComponent<TubeRenderer>().SetPositions(p_points.ToArray());
     }
+
+
+    public void saveExercise() {
+
+    }
+
+    public void setHandExer(string hand){
+        this.exer_aux.hand = hand;
+    }
+
+    
 
 }
