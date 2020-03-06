@@ -13,11 +13,20 @@ public class Trayectoria : MonoBehaviour
     public bool DdrawLine;
 
 
-    List<Vector3> p_points;
+   
     List<GameObject> points;
 
     Vector3 oldPosition;
     Vector3 position;
+
+    // 
+    List<Vector3> p_points;
+    List<float> l_time;
+    string name;
+    float temporaly;
+    float exact;
+    string hand;
+    //
 
     // Start is called before the first frame update
     void Start()
