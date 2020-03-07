@@ -1,18 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-
+[Serializable]
 public class Exercise {
 
 
-    private List<Vector3> _points;
-    private List<float> _time;
-    private string _name;
-    private float _temporaly;
-    private string _hand;
-    private float _exact; 
+    public List<Vector3> _points;
+    public List<float> _time;
+    public string _name;
+    public float _temporaly;
+    public string _hand;
+    public float _exact; 
 
     public Exercise(List<Vector3> points, List<float> time, string name, float temporaly, string hand, float exact){
         this._points = new List<Vector3>(points);

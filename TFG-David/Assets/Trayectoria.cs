@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Trayectoria : MonoBehaviour
 {
@@ -83,6 +84,8 @@ public class Trayectoria : MonoBehaviour
         this.recording = rec;
         if(rec) {
             this.exer_aux = new Exercise();
+        } else {
+
         }
     }
 
@@ -93,13 +96,17 @@ public class Trayectoria : MonoBehaviour
     public void drawLine() {
 
         this.exer_aux.points = p_points;
+        this.exer_aux.name = "prueba";
+        this.exer_aux.exact = 0.5f;
+        this.exer_aux.temporaly = 0.5f;
 
         tubeRenderer.GetComponent<TubeRenderer>().SetPositions(p_points.ToArray());
     }
 
 
     public void saveExercise() {
-
+        string jsonString = JsonUtility.ToJson(this.exer_aux);
+        File.WriteAllText("test.json", jsonString);
     }
 
     public void setHandExer(string hand){
