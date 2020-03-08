@@ -11,9 +11,12 @@ public class viewExercises : MonoBehaviour
 {
 
     string exercisesDirectory = @"Ejercicios";
+    GameObject vistaEjercicio;
     // Start is called before the first frame update
     void Start()
     {
+        vistaEjercicio = GameObject.Find("VistaEjercicio");
+        vistaEjercicio.SetActive(false);
         this.loadExercises();
     }
 
@@ -30,12 +33,14 @@ public class viewExercises : MonoBehaviour
             Exercise exer;
             foreach (string currentExercise in exercises)
             {
-                UnityEngine.Debug.Log(currentExercise);
                 var jsonString = File.ReadAllText(currentExercise);
                 exer = JsonUtility.FromJson<Exercise>(jsonString);
-                UnityEngine.Debug.Log(exer.hand);
-                GameObject obj = GameObject.Find("VistaEjercicio");
-                obj.GetComponent<ExerciseHandler>().loadExercise(exer);
+                GameObject ej = Instantiate(this.vistaEjercicio,transform.position, transform.rotation);
+                ej.GetComponent<ExerciseHandler>().loadExercise(exer);
+                ej.SetActive(true);
+                ej.transform.parent = gameObject.transform;
+               // GameObject obj = GameObject.Find("VistaEjercicio");
+               // obj.GetComponent<ExerciseHandler>().loadExercise(exer);
             }
         }
         catch(Exception e)
