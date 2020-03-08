@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: 7357838291684073898, guid: 2b24e62044768b647ba4ca47188454a9,
         type: 3}
       propertyPath: m_Name
-      value: PressableButtonHoloLens2TextOnly2Lines_48x96
+      value: DoButton
       objectReference: {fileID: 0}
     - target: {fileID: 7357838292305063972, guid: 2b24e62044768b647ba4ca47188454a9,
         type: 3}
@@ -772,6 +772,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 0}
+--- !u!1 &160877478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160877480}
+  - component: {fileID: 160877479}
+  m_Layer: 0
+  m_Name: Ejercicios
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &160877479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160877478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68264975bfec68c439489a2bf40a34c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &160877480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160877478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.2066, y: 0.1536, z: 0.2144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 816167843}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,6 +2204,7 @@ GameObject:
   - component: {fileID: 816167842}
   - component: {fileID: 816167841}
   - component: {fileID: 816167840}
+  - component: {fileID: 816167844}
   m_Layer: 0
   m_Name: VistaEjercicio
   m_TagString: Untagged
@@ -2232,8 +2277,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816167839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2066, y: 0.1536, z: 0.2144}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.13990071, y: 0.03756317, z: 0.000046968213}
   m_Children:
   - {fileID: 2054221205}
@@ -2242,9 +2287,28 @@ Transform:
   - {fileID: 1064798344}
   - {fileID: 798851172}
   - {fileID: 1598016435}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 160877480}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816167844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816167839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0eb9c71197979b4fb71cbddcebd567f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exercise:
+    _points: []
+    _time: []
+    _name: 
+    _temporaly: 0
+    _hand: 
+    _exact: 0
 --- !u!1 &1005873750
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,7 +2523,7 @@ GameObject:
   - component: {fileID: 1027376476}
   - component: {fileID: 1027376477}
   m_Layer: 0
-  m_Name: IconHandIdleLeft
+  m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3125,7 +3189,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118267689}
-  m_Mesh: {fileID: 1483933775}
+  m_Mesh: {fileID: 1370560313}
 --- !u!114 &1118267694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3790,7 +3854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e7abe5a6db0abc43be532eead7ba806, type: 3}
---- !u!43 &1483933775
+--- !u!43 &1370560313
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5742,7 +5806,7 @@ GameObject:
   - component: {fileID: 2054221205}
   - component: {fileID: 2054221206}
   m_Layer: 0
-  m_Name: IconHandIdleRight
+  m_Name: RigthHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
