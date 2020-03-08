@@ -18,6 +18,9 @@ public class viewExercises : MonoBehaviour
         vistaEjercicio = GameObject.Find("VistaEjercicio");
         vistaEjercicio.SetActive(false);
         this.loadExercises();
+       // GameObject.Find("Ejercicios").GetComponent<GridObjectCollection>().UpdateCollection();
+       UnityEngine.Debug.Log("SCRIPTS");
+        UnityEngine.Debug.Log(this.gameObject.GetComponent<MonoBehaviour>());
     }
 
     // Update is called once per frame

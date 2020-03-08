@@ -35,7 +35,7 @@ public class Trayectoria : MonoBehaviour
     {
         palmPointer = GameObject.Find("HandPointer");
         point = GameObject.Find("Point");
-        tubeRenderer = GameObject.Find("MixedRealityPlayspace");
+        tubeRenderer = GameObject.Find("DescripcionEjercicio");
 
         palmPointer.GetComponent<MeshRenderer>().material.color = Color.red;
         oldPosition = Vector3.zero;
