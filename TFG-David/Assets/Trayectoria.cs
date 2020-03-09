@@ -52,10 +52,11 @@ public class Trayectoria : MonoBehaviour
         // Aqui se deberia comprrobar si esta o no la mano siendo vista 
         // Cunando no se esta viendo mesh renderer esta a false 
 
-       // if(p_points.Count == 10){
-       //     this.recording = false;
-       //     this.drawLine();
-       // }
+    //    if(p_points.Count == 10){
+    //        this.recording = false;
+    //        this.drawLine();
+    //        GameObject.Find("MenuFinal").GetComponent<MenuGuardarEjercicio>().renderPrimerMenu();
+    //    }
 
         if(recording) {
             position = palmPointer.transform.position;
@@ -106,7 +107,7 @@ public class Trayectoria : MonoBehaviour
 
     public void saveExercise() {
         string jsonString = JsonUtility.ToJson(this.exer_aux);
-        File.WriteAllText("test.json", jsonString);
+        File.WriteAllText(@"Ejercicios\"+this.exer_aux.name+".json", jsonString);
     }
 
     public void setHandExer(string hand){

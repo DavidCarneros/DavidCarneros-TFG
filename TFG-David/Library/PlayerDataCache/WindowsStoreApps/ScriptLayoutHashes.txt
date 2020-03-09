@@ -1,6 +1,6 @@
 WindowsStoreApps
 PlayerPath?
-C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David/App
+C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David/App2
 SceneListBegin?
 Assets/Scenes/1-DescripcionEjercicio.unity
 SceneListEnd?
@@ -49,6 +49,7 @@ ac1c5c37c5fdddaea88131c23ceb3940 Microsoft.MixedReality.Toolkit.dll:Microsoft.Mi
 0e6bbec4af7307834a01caad753e37bd Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Experimental.UI.SymbolKeyboard
 bcbb98d9b4ad360c016d0f8be6f5a563 Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Input.BaseCursor
 e1e7d88bd8f0defceafa24c0322c346f Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.HitBehaviorDestroyOnSelect
+3e8c2c4febb3cc99f762b6e2a1cd86b1 Assembly-CSharp.dll:.ExerciseHandler
 663fcc0652ae006595a04f60e05cae23 Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.HandInteractionTouch
 a42b5ba49e6b381f91065d3609964056 Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Input.ControllerPoseSynchronizer
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:TMPro.TMP_PhoneNumberValidator
@@ -239,6 +240,7 @@ e8a27776a0aea2a7f5c20d7e4c860ecc Microsoft.MixedReality.Toolkit.SDK.dll:Microsof
 47930f3b40e24ef5b3b5e3d9ada7097a Assembly-CSharp.dll:TMPro.Examples.Benchmark01
 5a95be88cf8c36fe0dab0e0344fa19d1 Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Utilities.ParabolaConstrainedLineDataProvider
 8efb04991d15e76dfaa810eab69d427b Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Input.PointerClickHandler
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.viewExercises
 af3d057d8910754f614083343f2c59e1 Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.PanZoomBaseTexture
 0077fc8e4fbae67f80e80ebd534de5a0 Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 ff1cfd768b207053e073f8002f937b81 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour
