@@ -33,6 +33,11 @@ public class ExerciseHandler : MonoBehaviour {
 
     }
 
+    public void doExercise(){
+        GameObject.Find("Visualizador").GetComponent<Visualizacion>().setExercise(this.exercise);
+        GameObject.Find("Visualizador").GetComponent<Visualizacion>().dibujarTrayectoria();
+    }
+
     void caseChild (Transform child) {
 
         switch (child.name) {

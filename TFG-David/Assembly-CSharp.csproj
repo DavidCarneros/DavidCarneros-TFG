@@ -57,6 +57,7 @@
      <Compile Include="Assets\ExerciseHandler.cs" />
      <Compile Include="Assets\InputName.cs" />
      <Compile Include="Assets\MenuGuardarEjercicio.cs" />
+     <Compile Include="Assets\radial.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -93,6 +94,7 @@
      <Compile Include="Assets\Trayectoria.cs" />
      <Compile Include="Assets\TubeRenderer.cs" />
      <Compile Include="Assets\viewExercises.cs" />
+     <Compile Include="Assets\Visualizacion.cs" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

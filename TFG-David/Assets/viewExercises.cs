@@ -12,15 +12,18 @@ public class viewExercises : MonoBehaviour
 
     string exercisesDirectory = @"Ejercicios";
     GameObject vistaEjercicio;
+    Vector3 spawnPosition;
     // Start is called before the first frame update
     void Start()
     {
         vistaEjercicio = GameObject.Find("VistaEjercicio");
         vistaEjercicio.SetActive(false);
+        spawnPosition = new Vector3(0f,0f,0.05f);
         this.loadExercises();
        // GameObject.Find("Ejercicios").GetComponent<GridObjectCollection>().UpdateCollection();
        UnityEngine.Debug.Log("SCRIPTS");
         UnityEngine.Debug.Log(this.gameObject.GetComponent<MonoBehaviour>());
+
     }
 
     // Update is called once per frame
@@ -42,6 +45,8 @@ public class viewExercises : MonoBehaviour
                 ej.GetComponent<ExerciseHandler>().loadExercise(exer);
                 ej.SetActive(true);
                 ej.transform.parent = gameObject.transform;
+                ej.transform.position = this.spawnPosition;
+                this.spawnPosition = new Vector3(this.spawnPosition.x,this.spawnPosition.y + 0.05f, this.spawnPosition.z);
                // GameObject obj = GameObject.Find("VistaEjercicio");
                // obj.GetComponent<ExerciseHandler>().loadExercise(exer);
             }
