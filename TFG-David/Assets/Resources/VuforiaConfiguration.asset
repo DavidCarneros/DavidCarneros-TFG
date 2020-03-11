@@ -13,23 +13,22 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: ASRNNUr/////AAABmR8MJlrlbU+Zmz9BuxF/HblP+5zd6o5TeyCylfDdTbY3akbtLb5nGbGHFsz3Nmvk19e90Knry9mIdZ7N4uuW/BZqzJ4H18P7xBj09QuhSlEf14ib/CFTtyOzby/gbsXcfPavGneGytIEt4E3O2eNyyW+W8aWbILvqtJWFxpqh/aMWYN3F7WtyDlHA4iwIAaGAQ6cdr7ZbieloN5FOoqIFMNG87sb5kDoDYImeQub6QgEb66FQwjsZtSgvCtRpuGtegZtq8Y0SITK7Bg7xnpSPt7HNriRrtVyKJ2En+BaJ1iRrqvyCrpM/Oi04UriNikiOR4tgLXfxxm6lAgOt8Uv6q0Mu0jw44ur0VmSVSHVFaXl
-    ufoLicenseKey: QWZXN1hhei8vLy8vQUFBQUtOdVQrUWcwNFV1MnJiYUo1Rnh2OXNNaUZ2d012UjVWeWVWbktUVXJVQWQ3azRwYVNKeTFzZHFtc1RwZjl5U3pZTURRbGo5S2RzdjdQL2NEeTB5d1loSGk0WFZFYlpTRmdsSkY1YlY4dG1pZzByRUIvT1RtMkxHZEtqYk0yS1FnWUZnT0JlcVJ6WWJEYWkza2VLU1VpMVBiY1hTcUVXVldSQU1yck5xV05HdWphM2poNUlpZ1lJcDROa3pBdHNQVXBha0kwaW1ZTmxkTWJ5TnpRTHBuc003ZGJsWCsrb2hRZVIzVmR2d2xxV3BBZVBaNHB2cWhhT1llQTN3aHJEZnZSQjZjZTlFR3labndCMUJNRzdXaXhodTQrOFNvYkxkWWFXNytmbkpzZUFwQ08xdXl4emkzVXBHZDJDWjV3Qi9mdnpwSEJxRGxvNEJRa2JyTnF1QldRNG56YWR2RzArSWZzVytDcUlEY0VkclE=
+    vuforiaLicenseKey: 
+    ufoLicenseKey: QVhiM0Y1Ly8vLy8vQUFBQUtPbnFIeHJFSGs1N3VrMlg4U050eVBzK2pkOFZxMDhrazlwYjBsYS9aZUIxQlV1ckZWcWt0ZllSQWpnT2tIRlY2VzdOMDRTRjNYRUhmbTF5L1BnYlB4eWdHWEF6RUNheXowc3dyNVNYa2ozdERuRjhka1FpOHRscHdkMDcrcEJEY1FjTjNJcUM1bEgwOTYzQkdZdjRsQStRb0hSQU9nRGthelp5TlY0WHVwWU9EaE05NWw5bXAzbnBDMjM5MWZBWXBFdEdiL2loTDNab3N4b25ZblhjK1JtSS9wLzRoTDIwVGhmTXR6WFJNYkpUTXZLZzJoQ0N0TEJXNEptZ0pSOUtSdStzQWM3QjVNOWFFMGVHQ1dUT1VRSUUweEpiZC9ZL2cvS29iNDhBRXdQOGFwbWR5NmRWU0FHU2psVzRZY2FEU2Zud3J1ZHhucVNmSUZiajNTUnIzM0lKVlFIaW1rL0oyOGNFeDdyekcySXg=
     delayedInitialization: 0
-    cameraDeviceModeSetting: -2
+    cameraDeviceModeSetting: -1
     maxSimultaneousImageTargets: 1
     maxSimultaneousObjectTargets: 1
     useDelayedLoadingObjectTargets: 0
     modelTargetRecoWhileExtendedTracked: 1
     version: 8.6.10
-    eulaAcceptedVersions: '{"Values":["8.6"]}'
+    eulaAcceptedVersions: 
     modelTargetMode: 0
   database:
     disableModelExtraction: 0
   videoBackground:
     numDivisions: 2
-    videoBackgroundShader: {fileID: 4800000, guid: f40623b353e2f1943b1b3ba42975db7a,
-      type: 3}
+    videoBackgroundShader: {fileID: 0}
     videoBackgroundEnabled: 1
   deviceTracker:
     autoInitTracker: 0
@@ -40,6 +39,6 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: 1080P Webcam
+    deviceNameSetInEditor: 
     turnOffWebCam: 0
     renderTextureLayer: 30

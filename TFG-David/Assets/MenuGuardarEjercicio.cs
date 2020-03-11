@@ -18,6 +18,7 @@ public class MenuGuardarEjercicio : MonoBehaviour
         guardarMenu = GameObject.Find("MenuGuardar");
         primeraParteMenu.SetActive(false);
         guardarMenu.SetActive(false);
+        this.renderPrimerMenu();
 
      //   primeraParteMenu.renderer.enable = false;
     }

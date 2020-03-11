@@ -95,30 +95,18 @@
      <Compile Include="Assets\TubeRenderer.cs" />
      <Compile Include="Assets\viewExercises.cs" />
      <Compile Include="Assets\Visualizacion.cs" />
-     <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
-     <None Include="Assets\Vuforia\Shaders\CameraDiffuse.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\Vuforia\Shaders\VertexLitWithZ.shader" />
      <None Include="Assets\MixedRealityToolkit.Providers\Version.txt" />
-     <None Include="Assets\Vuforia\Shaders\VuforiaVB_YUVNV12_YUVNV21.cginc" />
-     <None Include="Assets\Vuforia\Shaders\VideoBackground.shader" />
-     <None Include="Assets\Vuforia\Shaders\OutlineOpaque.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\MixedRealityToolkit.Services\Version.txt" />
-     <None Include="Assets\Vuforia\Shaders\VuforiaVB_YUV420P_YUVYV12.cginc" />
      <None Include="Assets\MixedRealityToolkit.Services\License.txt" />
-     <None Include="Assets\StreamingAssets\Vuforia\HandTracking.xml" />
      <None Include="Assets\MixedRealityToolkit.Providers\License.txt" />
-     <None Include="Assets\Vuforia\Shaders\VuforiaVideoBackground.cginc" />
-     <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
-     <None Include="Assets\Vuforia\Databases\Emulator\VuforiaEmulator.xml" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\StreamingAssets\Vuforia\VuforiaMars_Images.xml" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -126,15 +114,11 @@
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-     <None Include="Assets\Vuforia\Shaders\DepthContour.shader" />
-     <None Include="Assets\Vuforia\Shaders\VuforiaVB_RGB.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-     <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -748,8 +732,6 @@
       <Project>{50FE4C4F-C768-1DDB-91B9-27FFADD2F0BA}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.Gltf.Inspectors</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.XRSDK.ConfigCheck.csproj">
       <Project>{E1362B97-B893-DAC2-3F73-921CDD74993F}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.XRSDK.ConfigCheck</Name>    </ProjectReference>
-    <ProjectReference Include="VuforiaScripts.csproj">
-      <Project>{9140AED7-5F5D-A3FC-26C7-2BF2EBE1860F}</Project>      <Name>VuforiaScripts</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Demos.Gltf.csproj">
       <Project>{0ED69522-8BAB-A0B6-3FE1-9DDD15B79154}</Project>      <Name>Microsoft.MixedReality.Toolkit.Demos.Gltf</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality.Shared.csproj">
@@ -770,8 +752,6 @@
       <Project>{206F82B5-F968-48C7-E527-76914E7CF904}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.SpatialAwarenessSystem</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Services.InputSimulation.Editor.csproj">
       <Project>{3CAFE05F-3D09-D186-0A72-B860A6001C16}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.InputSimulation.Editor</Name>    </ProjectReference>
-    <ProjectReference Include="VuforiaEditorScripts.csproj">
-      <Project>{0251C372-4DAA-EC58-331F-C02D5C73721E}</Project>      <Name>VuforiaEditorScripts</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Services.CameraSystem.csproj">
       <Project>{54EE6E11-015B-9F6D-96A5-F2CA7ACB8F3C}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.CameraSystem</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.SDK.csproj">

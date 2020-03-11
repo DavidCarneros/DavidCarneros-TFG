@@ -1,6 +1,6 @@
 WindowsStoreApps
 PlayerPath?
-C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David/App2
+C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David/App
 SceneListBegin?
 Assets/Scenes/1-DescripcionEjercicio.unity
 SceneListEnd?
@@ -9,7 +9,6 @@ c4a2ae8d92316554f46813565a38c329 Microsoft.MixedReality.Toolkit.SDK.dll:Microsof
 fbda10479cabf31a62e4e1f2cfb3a760 Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.GestureTester
 0f6563d05d35007cbca9110eb405b1bd Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Input.MixedRealityInputSystemProfile
 6a7d936d6dc1e3e76080075a76f3f7db Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.UI.AppBar
-71bb6a6b6c8f052f948db64c7dd3ca4f VuforiaScripts.dll:.BoundingBoxRenderer
 bd66248b13fd43716ad1b1071459509e Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.ColorTap
 68e8031b8023575a09d274997fa2b55c Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Input.MixedRealityPointerProfile
 c5d8dcb4678b1b541b27271618cce42a Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Physics.Interpolator
@@ -198,7 +197,6 @@ d578bb272fc60a408bb0684da56ad0eb Microsoft.MixedReality.Toolkit.SDK.dll:Microsof
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 10e036cb4594cfbb8415dcfc11c80853 Microsoft.MixedReality.Toolkit.Services.InputSystem.dll:Microsoft.MixedReality.Toolkit.Input.NearInteractionTouchable
 4883288c7689958b4de0ec42970cbca6 Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Experimental.UI.CapsLockHighlight
-71bb6a6b6c8f052f948db64c7dd3ca4f VuforiaScripts.dll:.DefaultInitializationErrorHandler
 8bb99954ad60ced3debe38a0801108b2 Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Utilities.HoverLight
 62d68cdf42784ae90c56fbed80c411c6 Microsoft.MixedReality.Toolkit.Demos.Gltf.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.Gltf.TestGltfLoading
 85f0579639f71c6ea8c09a9c35c2c65c Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Utilities.BezierDataProvider
@@ -435,7 +433,6 @@ e1c5680280c05e20102a3478ff82a653 Microsoft.MixedReality.Toolkit.Examples.dll:Mic
 f4698f273b5745de38f04ee81c8009d6 Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.SpatialAwareness.MixedRealitySpatialAwarenessMeshObserverProfile
 11319334e5365797f8056694f9b5dae4 Assembly-CSharp.dll:TMPro.Examples.ObjectSpin
 dd5abb7a71160825d24addab0f849326 Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Experimental.UI.UICollection
-e459138c8e3a64f4586c645c90fca12b VuforiaScripts.dll:.DefaultTrackableEventHandler
 4799210ed7c2eed3f6f18547b8727053 Microsoft.MixedReality.Toolkit.Services.InputSimulation.dll:Microsoft.MixedReality.Toolkit.Input.MixedRealityInputSimulationProfile
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:TMPro.TMP_DigitValidator
 8a67fcaebcaf13562489e587977a5a65 Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.LoadAdditiveScene
@@ -561,6 +558,7 @@ e80c1450883443c68d6c2dade213536f Assembly-CSharp.dll:TMPro.Examples.TMPro_Instru
 5cee306e02897b76c6ff32be50cd821c Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.OnSelectVisualizerInputController
 8dbde218bf4a5f5df72b0c8e7755ed69 Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.FaceUser
 9bf9b5b16135d83f96100c5434fb924f Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.UI.ToolTipSpawner
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.radial
 814b219c668dbc4e8a6ae32b51bcbd96 Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.StatusText
 4c0c80388b50247baabce2e71e3631e4 Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Utilities.SplineDataProvider
 2e5863471ce1272c31d41bcaed727a0d Microsoft.MixedReality.Toolkit.Examples.dll:Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking.TriggerZonePlaceObjsWithin
@@ -613,6 +611,7 @@ fe8f526772feb606a175db4cfeb26f23 Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 9efc7e393fa1391cd85bae0125a3f05f Assembly-CSharp.dll:.MenuGuardarEjercicio
+7292f764a5d7e231e4f34a02c4097db6 Assembly-CSharp.dll:.Visualizacion
 223a9eb51364816760840c1d1b5b6976 Microsoft.MixedReality.Toolkit.dll:Microsoft.MixedReality.Toolkit.Input.MixedRealityGesturesProfile
 9ded861bfb13bfdf8a6dea6fb02bb93f Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Utilities.Solvers.RadialView
 e7c62687d44555b8e639a05ba7b2b903 Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Input.FingerCursor
