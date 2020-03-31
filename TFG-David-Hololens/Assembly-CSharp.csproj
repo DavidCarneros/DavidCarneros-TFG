@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\DefineExerciseHandler.cs" />
      <Compile Include="Assets\Exercise.cs" />
+     <Compile Include="Assets\HandsTrackingHandler.cs" />
      <Compile Include="Assets\MainMenuHandler.cs" />
      <Compile Include="Assets\MainMenuScript.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
