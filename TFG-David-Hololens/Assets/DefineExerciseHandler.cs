@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.MixedReality.Toolkit.UI;
 using TMPro;
+using System.IO;
 
 public class DefineExerciseHandler : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class DefineExerciseHandler : MonoBehaviour
     List<GameObject> VisualPoints;
 
     Exercise exercise;
+    float exactExer;
+
+    public TouchScreenKeyboard keyboard;
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +61,6 @@ public class DefineExerciseHandler : MonoBehaviour
         exercise = new Exercise();
         exercise.points = ExercisePoint;
         exercise.name = "prueba";
-        exercise.exact = 0.5f;
         exercise.hand = hand;
 
         DefineExercise.GetComponent<TubeRenderer>().SetPositions(ExercisePoint.ToArray());
@@ -72,11 +75,22 @@ public class DefineExerciseHandler : MonoBehaviour
     }
 
     public void saveExercise() {
-      //  string jsonString = JsonUtility.ToJson(this.exer_aux);
-      //  File.WriteAllText("test.json", jsonString);
+        exercise.exact = this.exactExer;
+        string jsonString = JsonUtility.ToJson(this.exercise);
+        File.WriteAllText("test.json", jsonString);
+    }
+
+    public void OpenSystemKeyboard()
+    {
+        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
     }
 
     public void OnSliderDistanceUpdated(SliderEventData eventData){
         this.pointDistance = eventData.NewValue/10;
+    }
+
+    public void OnSliderExactUpdated(SliderEventData eventData){
+        Debug.Log(this.exactExer);
+        this.exactExer = eventData.NewValue/10;
     }
 }

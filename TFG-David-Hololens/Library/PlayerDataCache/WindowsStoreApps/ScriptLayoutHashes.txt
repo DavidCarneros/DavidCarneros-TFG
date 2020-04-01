@@ -1,6 +1,6 @@
 WindowsStoreApps
 PlayerPath?
-C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/App2
+C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/App
 SceneListBegin?
 Assets/Scenes/0-MainScene.unity
 SceneListEnd?
@@ -458,6 +458,7 @@ bd3f0ca738703903e759f77536ed74fd Assembly-CSharp.dll:TMPro.Examples.TMP_UiFrameR
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:TMPro.Examples.VertexColorCycler
 cee4980b2526809004cd437f372ff8c4 Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.UI.ToolTipLineHighlight
 25d1aca7b790ab6141cfb844606948d7 Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Experimental.UI.SymbolDisableHighlight
+c993e6b39d9667c29d35c5fdd98c6e4a Assembly-CSharp.dll:.ShowSliderValue
 e63944317d2f5958e31963668bb29158 Assembly-CSharp.dll:TMPro.Examples.VertexZoom
 71bb6a6b6c8f052f948db64c7dd3ca4f Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.UI.PointerBehaviorControls
 617c43d4b1fe048b383025a0a4acf22c Microsoft.MixedReality.Toolkit.SDK.dll:Microsoft.MixedReality.Toolkit.Utilities.Solvers.SolverHandler
