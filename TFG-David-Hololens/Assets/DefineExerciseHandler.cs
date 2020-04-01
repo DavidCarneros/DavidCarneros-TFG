@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Microsoft.MixedReality.Toolkit.UI;
+using TMPro;
 
 public class DefineExerciseHandler : MonoBehaviour
 {
@@ -72,5 +74,9 @@ public class DefineExerciseHandler : MonoBehaviour
     public void saveExercise() {
       //  string jsonString = JsonUtility.ToJson(this.exer_aux);
       //  File.WriteAllText("test.json", jsonString);
+    }
+
+    public void OnSliderDistanceUpdated(SliderEventData eventData){
+        this.pointDistance = eventData.NewValue/10;
     }
 }
