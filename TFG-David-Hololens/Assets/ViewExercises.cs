@@ -13,6 +13,7 @@ public class ViewExercises : MonoBehaviour {
     public GameObject plane;
     public GameObject buttons;
     public GameObject point;
+    public GameObject exerciseViewList;
 
     float viewOffset;
     List<Exercise> exercises;
@@ -90,12 +91,16 @@ public class ViewExercises : MonoBehaviour {
             exercisesView.RemoveAt (i);
             Destroy (aux);
         }
-
+        
+        Vector3[] arrayPoints = new Vector3[exer.points.Count];
         for (int i = 0; i < exer.points.Count - 1; i++) {
             GameObject obj = Instantiate (point, this.transform);
             obj.transform.position = Camera.main.transform.position + exer.points[i];
+            arrayPoints[i] = Camera.main.transform.position + exer.points[i]; 
         }
-        ViewExercisesMAIN.GetComponent<TubeRenderer> ().SetPositions (exer.points.ToArray ());
+
+        
+        ViewExercisesMAIN.GetComponent<TubeRenderer> ().SetPositions(arrayPoints);
 
     }
 
@@ -109,13 +114,16 @@ public class ViewExercises : MonoBehaviour {
             max = totalExercises;
         }
 
+        float z = plane.transform.position.z - 0.01f;
+        float x = plane.transform.position.x - 0.01f;
+
         for (int i = index; i < max; i++) {
             var exer = exercises[i];
-            Vector3 pos = transform.position + new Vector3 (0.0f, viewOffset, 0.0f);
-            GameObject ej = Instantiate (this.ExerciseView, pos, transform.rotation);
+            Vector3 pos = transform.position + new Vector3 (x, viewOffset, z);
+            GameObject ej = Instantiate (this.ExerciseView, pos, plane.transform.rotation);
             ej.GetComponent<ExerciseViewHandler> ().loadExercise (exer);
             ej.SetActive (true);
-            ej.transform.parent = gameObject.transform;
+            ej.transform.parent = exerciseViewList.transform;
             viewOffset += 0.1f;
             exercisesView.Add (ej);
 

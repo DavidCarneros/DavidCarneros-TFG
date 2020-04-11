@@ -10,6 +10,8 @@ public class MainMenuHandler : MonoBehaviour {
     public GameObject ViewExercises;
     public GameObject DoExercise;
 
+    public GameObject HandsTracking;
+
     // Start is called before the first frame update
     void Start () {
         this.DefineExercise.SetActive (false);
@@ -41,7 +43,7 @@ public class MainMenuHandler : MonoBehaviour {
             default:
                 break;
         }
-
+        this.HandsTracking.GetComponent<HandsTrackingHandler>().setHandPointerActive(false);
         this.MainMenu.SetActive(false);
 
     }

@@ -9,6 +9,7 @@ public class DefineExerciseHandler : MonoBehaviour
 {
 
     public GameObject HandPointer;
+    public GameObject handsTrackingHandler;
     public GameObject DefineExercise;
     public GameObject point;
 
@@ -18,6 +19,7 @@ public class DefineExerciseHandler : MonoBehaviour
 
     Vector3 headPosition;
     Vector3 handPosition;
+    Vector3 handPositionSave;
     Vector3 oldHandPosition;
 
     List<Vector3> ExercisePoint;
@@ -41,18 +43,21 @@ public class DefineExerciseHandler : MonoBehaviour
     {
         if(recording) {
             handPosition = HandPointer.transform.position;
+         //   handPosition = handsTrackingHandler.GetComponent<HandsTrackingHandler>().handPoint;
+            headPosition = Camera.main.transform.position;
+            handPositionSave = handPosition - headPosition;
             if(ExercisePoint.Count == 0){
                 GameObject obj = Instantiate(point, this.transform);
-                obj.transform.position = handPosition;
+                obj.transform.position = handPositionSave;
                 VisualPoints.Add(obj);
-                ExercisePoint.Add(handPosition);
+                ExercisePoint.Add(handPositionSave);
             }
 
             if(Vector3.Distance (handPosition, ExercisePoint[ExercisePoint.Count-1]) >= pointDistance){
                 GameObject obj = Instantiate(point, this.transform);
-                obj.transform.position = handPosition;
+                obj.transform.position = handPositionSave;
                 VisualPoints.Add(obj);
-                ExercisePoint.Add(handPosition);
+                ExercisePoint.Add(handPositionSave);
             }
         }
     }
@@ -62,6 +67,11 @@ public class DefineExerciseHandler : MonoBehaviour
         exercise.points = ExercisePoint;
         exercise.name = "prueba";
         exercise.hand = hand;
+
+    //    Vector3[] arrayPoints = new Vector3[ExercisePoint.Count];
+    //    for(int i = 0 ; i < ExercisePoint.Count; i++){
+    //        arrayPoints[i] = Camera.main.transform.position + ExercisePoint[i]; 
+    //    }
 
         DefineExercise.GetComponent<TubeRenderer>().SetPositions(ExercisePoint.ToArray());
     }
@@ -77,7 +87,7 @@ public class DefineExerciseHandler : MonoBehaviour
     public void saveExercise() {
         exercise.exact = this.exactExer;
         string jsonString = JsonUtility.ToJson(this.exercise);
-        File.WriteAllText("test.json", jsonString);
+        File.WriteAllText("Exercises/test1.json", jsonString);
     }
 
     public void OpenSystemKeyboard()

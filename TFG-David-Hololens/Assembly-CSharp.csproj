@@ -54,7 +54,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DefineExerciseHandler.cs" />
+     <Compile Include="Assets\DoExercisesHandler.cs" />
      <Compile Include="Assets\Exercise.cs" />
+     <Compile Include="Assets\ExerciseController.cs" />
+     <Compile Include="Assets\ExerciseSummary.cs" />
      <Compile Include="Assets\ExerciseViewHandler.cs" />
      <Compile Include="Assets\HandsTrackingHandler.cs" />
      <Compile Include="Assets\MainMenuHandler.cs" />
@@ -95,6 +98,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\TubeRenderer.cs" />
      <Compile Include="Assets\ViewExercises.cs" />
+     <Compile Include="Assets\ViewExercisesHanderDo.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\MixedRealityToolkit.Providers\Version.txt" />
