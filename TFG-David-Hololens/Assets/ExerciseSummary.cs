@@ -7,15 +7,17 @@ using UnityEngine;
 public class ExerciseSummary {
 
     public int totalErros;
-    public List<int> pointsErros;
+    public int[] pointsErros;
     public float totalTime;
-    public List<float> pointsTime;
+    public float[] pointsTime;
 
-    public ExerciseSummary(int totalErros, List<int> pointsErros, float totalTime, List<float> pointsTime){
+    public ExerciseSummary(int totalErros, int[] pointsErros, float totalTime, float[] pointsTime){
         this.totalErros = totalErros;
-        this.pointsErros = new List<int>(pointsErros);
+    //    this.pointsErros = new List<int>(pointsErros);
+        this.pointsErros = pointsErros;
         this.totalTime = totalTime;
-        this.pointsTime = new List<float>(pointsTime);
+        this.pointsTime = pointsTime;
+    //    this.pointsTime = new List<float>(pointsTime);
     }
 
 }

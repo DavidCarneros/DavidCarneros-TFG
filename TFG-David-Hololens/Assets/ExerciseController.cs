@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -11,13 +12,17 @@ public class ExerciseController : MonoBehaviour {
     }
 
     public Exercise exercise;
-    public ExerciseSummary summary;
     public GameObject ExerciseRender;
     public GameObject ExerciseList;
     public GameObject MainView;
     public GameObject handPointer;
     public GameObject InfoMenu;
     public GameObject HelpText;
+    public GameObject finishText;
+    public GameObject lessErros;
+    public GameObject lessTime;
+    public GameObject congrats;
+    public GameObject restartMenu;
 
     List<Vector3> printedPoints;
     List<GameObject> objectPoints;
@@ -33,12 +38,20 @@ public class ExerciseController : MonoBehaviour {
     int[] pointFail;
     int acuFail;
 
+    DateTime initTime;
+    DateTime endTime;
+
     // Start is called before the first frame update
     void Start () {
         this.printedPoints = new List<Vector3> ();
         this.objectPoints = new List<GameObject> ();
-        this.InfoMenu.SetActive(false);
-        this.HelpText.SetActive(false);
+        this.InfoMenu.SetActive (false);
+        this.HelpText.SetActive (false);
+        this.finishText.SetActive (false);
+        this.lessErros.SetActive (false);
+        this.lessTime.SetActive (false);
+        this.congrats.SetActive (false);
+        this.restartMenu.SetActive (false);
         this.state = State.EXERCISE_NOT;
     }
 
@@ -48,7 +61,7 @@ public class ExerciseController : MonoBehaviour {
             handPosition = handPointer.transform.position;
             if ((Vector3.Distance (handPosition, actualPoint)) <= exercise.exact) {
                 // Punto completo
-                correctPoint();
+                correctPoint ();
             } else {
                 // comparar con los otros 
                 checkOtherPoints (handPosition);
@@ -68,18 +81,21 @@ public class ExerciseController : MonoBehaviour {
             }
 
         }
-        if (acuFail == 5) {
+        if (acuFail == 10) {
             // mostrar Ayuda 
             acuFail = 0;
-            this.HelpText.SetActive(true);
-            this.HelpText.transform.position = printedPoints[actualPointIndex] + new Vector3(0.2f,0.2f,1f);
+            this.HelpText.SetActive (true);
+            this.HelpText.transform.position = printedPoints[actualPointIndex] + new Vector3 (0f, 0.2f, 0.5f);
         }
 
     }
 
     void correctPoint () {
+        if(actualPointIndex == 0){
+            initTime = DateTime.Now;
+        }
         acuFail = 0;
-        this.HelpText.SetActive(false);
+        this.HelpText.SetActive (false);
         objectPoints[actualPointIndex].GetComponent<MeshRenderer> ().material.color = Color.green;
         actualPointIndex = actualPointIndex + 1;
         if (actualPointIndex <= printedPoints.Count - 1) {
@@ -88,13 +104,67 @@ public class ExerciseController : MonoBehaviour {
             objectPoints[actualPointIndex].GetComponent<MeshRenderer> ().material.color = Color.yellow;
         } else {
             // Fin del ejercicio
+            endTime = DateTime.Now;
             state = State.EXERCISE_NOT;
+            exerciseFinish ();
         }
+    }
+
+    void exerciseFinish () {
+        float totalTime = (endTime - initTime).Seconds;
+        ExerciseSummary summary = new ExerciseSummary (totalFail, pointFail, totalTime, null);
+        string timeStamp = GetTimestamp (DateTime.Now);
+        string jsonString = JsonUtility.ToJson (summary);
+        string fileName = "Exercises/" + exercise.name + "/" + timeStamp + ".json";
+        File.WriteAllText (fileName, jsonString);
+        SummaryList.Add (summary);
+        if (SummaryList.Count > 1) {
+            StartCoroutine (InforExerciseRoutine ());
+        } else {
+            // Solo enhorabuena
+            this.finishText.SetActive (true);
+            this.finishText.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+        }
+    }
+
+    private IEnumerator InforExerciseRoutine () {
+
+        ExerciseSummary actualSummary = SummaryList[SummaryList.Count - 1];
+        this.finishText.SetActive (true);
+        this.finishText.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+        yield return new WaitForSeconds (5);
+        this.finishText.SetActive (false);
+
+        float totalTimeAvg = 0;
+        float totalErrorAvg = 0;
+        for (int i = 0; i < SummaryList.Count - 2; i++) {
+            totalErrorAvg += SummaryList[i].totalErros;
+            totalTimeAvg += SummaryList[i].totalTime;
+        }
+        totalErrorAvg = totalErrorAvg / (SummaryList.Count - 1);
+        totalTimeAvg = totalTimeAvg / (SummaryList.Count - 1);
+
+        if (totalErrorAvg < actualSummary.totalErros) {
+            // Se ha equivocado menos
+            this.lessErros.SetActive (true);
+            this.lessErros.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+            yield return new WaitForSeconds (3);
+            this.lessErros.SetActive (false);
+        }
+
+        if(totalTimeAvg < actualSummary.totalTime){
+            this.lessTime.SetActive (true);
+            this.lessTime.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+            yield return new WaitForSeconds (3);
+            this.lessTime.SetActive (false);
+        }
+
     }
 
     public void setExerciseAndStart (Exercise exercise) {
         this.exercise = exercise;
         renderExercise ();
+        SummaryList = new List<ExerciseSummary> ();
         // Comprobar si directorio de los summary existen 
         if (Directory.Exists (mainPath + exercise.name)) {
             var summaryFiles = Directory.EnumerateFiles (mainPath + exercise.name, "*.json");
@@ -107,7 +177,7 @@ public class ExerciseController : MonoBehaviour {
         } else {
             Directory.CreateDirectory (mainPath + exercise.name);
         }
-        InfoMenu.SetActive(true);
+        InfoMenu.SetActive (true);
     }
 
     public void AcceptAndStart () {
@@ -118,7 +188,7 @@ public class ExerciseController : MonoBehaviour {
         totalFail = 0;
         pointFail = new int[printedPoints.Count];
         acuFail = 0;
-        InfoMenu.SetActive(false);
+        InfoMenu.SetActive (false);
         state = State.EXERCISE_START;
 
     }
@@ -139,5 +209,9 @@ public class ExerciseController : MonoBehaviour {
 
         gameObject.GetComponent<TubeRenderer> ().SetPositions (printedPoints.ToArray ());
 
+    }
+
+    public static String GetTimestamp (DateTime value) {
+        return value.ToString ("yyyyMMddHHmmssffff");
     }
 }
