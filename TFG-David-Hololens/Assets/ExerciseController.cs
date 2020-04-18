@@ -23,6 +23,9 @@ public class ExerciseController : MonoBehaviour {
     public GameObject lessTime;
     public GameObject congrats;
     public GameObject restartMenu;
+    public GameObject restartText;
+    // 
+    public GameObject particles;
 
     List<Vector3> printedPoints;
     List<GameObject> objectPoints;
@@ -52,6 +55,7 @@ public class ExerciseController : MonoBehaviour {
         this.lessTime.SetActive (false);
         this.congrats.SetActive (false);
         this.restartMenu.SetActive (false);
+        this.restartText.SetActive (false);
         this.state = State.EXERCISE_NOT;
     }
 
@@ -91,12 +95,18 @@ public class ExerciseController : MonoBehaviour {
     }
 
     void correctPoint () {
-        if(actualPointIndex == 0){
+        if (actualPointIndex == 0) {
             initTime = DateTime.Now;
         }
         acuFail = 0;
         this.HelpText.SetActive (false);
         objectPoints[actualPointIndex].GetComponent<MeshRenderer> ().material.color = Color.green;
+        // particles
+        particles.SetActive(true);
+        particles.transform.position = objectPoints[actualPointIndex].transform.position;
+        particles.GetComponent<ParticleSystem>().Play();
+
+
         actualPointIndex = actualPointIndex + 1;
         if (actualPointIndex <= printedPoints.Count - 1) {
             // Hay mas puntos
@@ -122,16 +132,49 @@ public class ExerciseController : MonoBehaviour {
             StartCoroutine (InforExerciseRoutine ());
         } else {
             // Solo enhorabuena
-            this.finishText.SetActive (true);
-            this.finishText.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+            StartCoroutine (RestartTextRoutineNew ());
+
         }
+    }
+
+    public void restartExercise () {
+        actualPoint = printedPoints[0];
+        objectPoints[0].GetComponent<MeshRenderer> ().material.color = Color.yellow;
+        for (int i = 1; i < objectPoints.Count - 1; i++) {
+            objectPoints[i].GetComponent<MeshRenderer> ().material.color = Color.red;
+        }
+        actualPointIndex = 0;
+        totalFail = 0;
+        pointFail = new int[printedPoints.Count];
+        acuFail = 0;
+        restartMenu.SetActive (false);
+        StartCoroutine (RestartTextRoutine ());
+        state = State.EXERCISE_START;
+    }
+
+    private IEnumerator RestartTextRoutineNew () {
+        this.finishText.SetActive (true);
+        this.finishText.transform.position = Camera.main.transform.position + new Vector3 (0f, 0f, 1f);
+        yield return new WaitForSeconds (4);
+        this.finishText.SetActive (false);
+
+        viewRestartMenu ();
+    }
+
+    private IEnumerator RestartTextRoutine () {
+
+        this.restartText.SetActive (true);
+        this.restartText.transform.position = Camera.main.transform.position + new Vector3 (0f, 0f, 0.7f);
+        yield return new WaitForSeconds (4);
+        this.restartText.SetActive (false);
+
     }
 
     private IEnumerator InforExerciseRoutine () {
 
         ExerciseSummary actualSummary = SummaryList[SummaryList.Count - 1];
         this.finishText.SetActive (true);
-        this.finishText.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+        this.finishText.transform.position = Camera.main.transform.position + new Vector3 (0, 0.0f, 1f);
         yield return new WaitForSeconds (5);
         this.finishText.SetActive (false);
 
@@ -147,18 +190,25 @@ public class ExerciseController : MonoBehaviour {
         if (totalErrorAvg < actualSummary.totalErros) {
             // Se ha equivocado menos
             this.lessErros.SetActive (true);
-            this.lessErros.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+            this.lessErros.transform.position = Camera.main.transform.position + new Vector3 (0, 0.0f, 1f);
             yield return new WaitForSeconds (3);
             this.lessErros.SetActive (false);
         }
 
-        if(totalTimeAvg < actualSummary.totalTime){
+        if (totalTimeAvg < actualSummary.totalTime) {
             this.lessTime.SetActive (true);
-            this.lessTime.transform.position = Camera.main.transform.position + new Vector3 (0, 0.2f, 1f);
+            this.lessTime.transform.position = Camera.main.transform.position + new Vector3 (0, 0.0f, 1f);
             yield return new WaitForSeconds (3);
             this.lessTime.SetActive (false);
         }
 
+        viewRestartMenu ();
+
+    }
+
+    void viewRestartMenu () {
+        this.restartMenu.SetActive (true);
+        this.restartMenu.transform.position = Camera.main.transform.position + new Vector3 (0, 0.0f, 1f);
     }
 
     public void setExerciseAndStart (Exercise exercise) {

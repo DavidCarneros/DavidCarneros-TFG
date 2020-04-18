@@ -48,14 +48,14 @@ public class DefineExerciseHandler : MonoBehaviour
             handPositionSave = handPosition - headPosition;
             if(ExercisePoint.Count == 0){
                 GameObject obj = Instantiate(point, this.transform);
-                obj.transform.position = handPositionSave;
+                obj.transform.position = handPosition;
                 VisualPoints.Add(obj);
                 ExercisePoint.Add(handPositionSave);
             }
 
             if(Vector3.Distance (handPosition, ExercisePoint[ExercisePoint.Count-1]) >= pointDistance){
                 GameObject obj = Instantiate(point, this.transform);
-                obj.transform.position = handPositionSave;
+                obj.transform.position = handPosition;
                 VisualPoints.Add(obj);
                 ExercisePoint.Add(handPositionSave);
             }

@@ -81,14 +81,18 @@ public class HandsTrackingHandler : MonoBehaviour {
 
     private void ReceivePointData () {
         Server = new UdpClient (port);
+        Debug.Log("Empieza a recivir: ");
         while (true) {
             try {
                 IPEndPoint anyIp = new IPEndPoint (IPAddress.Any, 0);
                 byte[] data = Server.Receive (ref anyIp);
+                Debug.Log("Ha recibido alguna mierda");
                 string jsonString = Encoding.UTF8.GetString (data);
                 HandsPacket packet = JsonUtility.FromJson<HandsPacket> (jsonString);
-
+                Debug.Log("PACKET COÑO!");
+                Debug.Log(packet);  
                 if (Hand == "Right") {
+                    
                     handVector = packet.right;
                     ConfianceLevel = packet.right_level;
                 }
@@ -96,6 +100,7 @@ public class HandsTrackingHandler : MonoBehaviour {
                 Debug.Log ("Exception --> " + err.ToString ());
             }
         }
+
     }
 }
 
