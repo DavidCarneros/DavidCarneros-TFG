@@ -104,6 +104,7 @@ public class ExerciseController : MonoBehaviour {
         // particles
         particles.SetActive(true);
         particles.transform.position = objectPoints[actualPointIndex].transform.position;
+        particles.GetComponent<AudioSource>().Play();
         particles.GetComponent<ParticleSystem>().Play();
 
 
@@ -121,6 +122,7 @@ public class ExerciseController : MonoBehaviour {
     }
 
     void exerciseFinish () {
+        gameObject.GetComponent<AudioSource>().Play();
         float totalTime = (endTime - initTime).Seconds;
         ExerciseSummary summary = new ExerciseSummary (totalFail, pointFail, totalTime, null);
         string timeStamp = GetTimestamp (DateTime.Now);
