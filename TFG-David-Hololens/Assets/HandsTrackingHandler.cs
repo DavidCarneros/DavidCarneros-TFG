@@ -18,32 +18,16 @@ public class HandsTrackingHandler : MonoBehaviour {
     public delegate void _OnPointsLeftReceived (HandInformation information);
     public static event _OnPointsLeftReceived OnPointsLeftReceived; 
 
-
     Thread receiverThread;
     public int port;
     public String Hand;
 
-    //public GameObject HandPointer;
-
     UdpClient Server;
-   // Vector3 handVector;
-   // Quaternion handQuaternion;
-
-    //public Vector3 handPoint;
-    //Vector3 oldHandPoint;
-
-    //bool handPointerActive;
-
-    // NUEVO 
 
     public GameObject kinectObject;
     Vector3 kinectPosition;
     // Start is called before the first frame update
     void Start () {
-    //    this.HandPointer.GetComponent<MeshRenderer> ().material.color = Color.red;
-    //    oldHandPoint = Vector3.zero;
-    //    handPoint = Vector3.zero;
-    //    handPointerActive = true;
         receiverThread = new Thread (new ThreadStart (ReceivePointData));
         receiverThread.IsBackground = true;
         receiverThread.Start ();
@@ -53,41 +37,8 @@ public class HandsTrackingHandler : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         kinectPosition = kinectObject.transform.position;
-        //handPoint = Camera.main.transform.position + handVector;
-        // handVector;
-        // if (handPointerActive) {
-        /*
-        if (Vector3.Distance (handPoint, oldHandPoint) >= 0.01) {
-            HandPointer.transform.position = handPoint;
-            HandPointer.transform.rotation = handQuaternion;
-            switch (ConfianceLevel) {
-                case 0:
-                    HandPointer.GetComponent<MeshRenderer> ().material.color = Color.red;
-                    break;
-                case 1:
-                    HandPointer.GetComponent<MeshRenderer> ().material.color = Color.yellow;
-                    break;
-                case 2:
-                    HandPointer.GetComponent<MeshRenderer> ().material.color = Color.green;
-                    break;
-                case 3:
-                    HandPointer.GetComponent<MeshRenderer> ().material.color = Color.blue;
-                    break;
-                default:
-                    break;
-            }
-            oldHandPoint = handPoint;
-        }
-        */
     }
 
-    public void disableVuforiaEngine(){
-
-    }
-
-    public void setHandPointerActive (bool active) {
-     //   handPointerActive = active;
-    }
 
     void OnApplicationQuit () {
         stopThread ();

@@ -43,7 +43,7 @@ public class MainMenuHandler : MonoBehaviour {
             default:
                 break;
         }
-        this.HandsTracking.GetComponent<HandsTrackingHandler>().setHandPointerActive(false);
+        //this.HandsTracking.GetComponent<HandsTrackingHandler>().setHandPointerActive(false);
         this.MainMenu.SetActive(false);
 
     }

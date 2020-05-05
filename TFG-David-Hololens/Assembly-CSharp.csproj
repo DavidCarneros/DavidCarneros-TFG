@@ -57,9 +57,11 @@
      <Compile Include="Assets\DoExercisesHandler.cs" />
      <Compile Include="Assets\Exercise.cs" />
      <Compile Include="Assets\ExerciseController.cs" />
+     <Compile Include="Assets\ExerciseDraw.cs" />
      <Compile Include="Assets\ExerciseSummary.cs" />
      <Compile Include="Assets\ExerciseViewHandler.cs" />
      <Compile Include="Assets\HandInformation.cs" />
+     <Compile Include="Assets\HandPointerAnimation.cs" />
      <Compile Include="Assets\HandsTrackingHandler.cs" />
      <Compile Include="Assets\MainMenuHandler.cs" />
      <Compile Include="Assets\MainMenuScript.cs" />
@@ -98,6 +100,8 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\TextParticleHandler.cs" />
+     <Compile Include="Assets\TorusHandler.cs" />
      <Compile Include="Assets\TubeRenderer.cs" />
      <Compile Include="Assets\ViewExercises.cs" />
      <Compile Include="Assets\ViewExercisesHanderDo.cs" />
@@ -141,6 +145,15 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+ <Reference Include="Unity.ProBuilder">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.Editor">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -155,6 +168,9 @@
  </Reference>
  <Reference Include="Unity.XR.WindowsMR.Editor">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/Library/ScriptAssemblies/Unity.XR.WindowsMR.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.AddOns.Editor">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-David-Hololens/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -759,6 +775,8 @@
       <Project>{52E50DBC-95AC-A906-3269-A21DFC613963}</Project>      <Name>Microsoft.Windows.MixedReality.DotNetWinRT.Editor</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.XRSDK.ConfigCheck.csproj">
       <Project>{3B835A95-D86F-6F2A-C6A8-17D7B861C4F2}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.XRSDK.ConfigCheck</Name>    </ProjectReference>
+    <ProjectReference Include="VuforiaScripts.csproj">
+      <Project>{475D7F82-9F8A-407B-9949-DFBA713920A9}</Project>      <Name>VuforiaScripts</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality.Shared.csproj">
       <Project>{4E738A33-1814-F5C6-C665-20FA58C8866A}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality.Shared</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Editor.ClassExtensions.csproj">
@@ -771,6 +789,8 @@
       <Project>{34F38718-9739-3693-DE56-03BE111A3444}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.SpatialAwarenessSystem</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Services.InputSimulation.Editor.csproj">
       <Project>{CA55B2FF-B012-424D-93DB-E60833021628}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.InputSimulation.Editor</Name>    </ProjectReference>
+    <ProjectReference Include="VuforiaEditorScripts.csproj">
+      <Project>{6884EA1C-EE2E-3054-5DA0-152C6BF5D666}</Project>      <Name>VuforiaEditorScripts</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Services.CameraSystem.csproj">
       <Project>{23CEBF55-BA96-4F81-0808-C877A71FE117}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.CameraSystem</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.SDK.csproj">
@@ -809,10 +829,6 @@
       <Project>{5AE6E1EF-CB3F-AB36-CEA9-2E910C60BA01}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.UnityAR.ConfigCheck</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Services.InputSimulation.csproj">
       <Project>{B1575717-E412-169B-71DA-B5443A11F5F1}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.InputSimulation</Name>    </ProjectReference>
-    <ProjectReference Include="VuforiaScripts.csproj">
-      <Project>{475D7F82-9F8A-407B-9949-DFBA713920A9}</Project>      <Name>VuforiaScripts</Name>    </ProjectReference>
-    <ProjectReference Include="VuforiaEditorScripts.csproj">
-      <Project>{6884EA1C-EE2E-3054-5DA0-152C6BF5D666}</Project>      <Name>VuforiaEditorScripts</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: bf3d97df2338a3649a63902a99c24569
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: TFG-DefinicionEjercicios.Dependencies.msb4u
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 0e4dca1acba66fd478b3854f09a32ec7, type: 3}
+  buildEngine: 0
+  profiles: []

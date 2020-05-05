@@ -22,6 +22,9 @@ public class ViewExercises : MonoBehaviour {
     int first; // de cuantos en cuanto
     int offset; // donde empeieza
 
+    // DEBUG: EJERCICIO VISTA NUEVO 
+    public GameObject newView;
+
     // Start is called before the first frame update
     void Start () {
         this.exercises = new List<Exercise> ();
@@ -92,6 +95,9 @@ public class ViewExercises : MonoBehaviour {
             Destroy (aux);
         }
         
+        newView.GetComponent<ExerciseDraw>().buildExercise(exer.points);
+        // DEBUG
+        /*
         Vector3[] arrayPoints = new Vector3[exer.points.Count];
         for (int i = 0; i < exer.points.Count - 1; i++) {
             GameObject obj = Instantiate (point, this.transform);
@@ -101,6 +107,7 @@ public class ViewExercises : MonoBehaviour {
 
         
         ViewExercisesMAIN.GetComponent<TubeRenderer> ().SetPositions(arrayPoints);
+        */
 
     }
 
