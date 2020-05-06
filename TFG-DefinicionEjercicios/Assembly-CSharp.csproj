@@ -53,10 +53,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DefineExerciseHandler.cs" />
+     <Compile Include="Assets\Scripts\Exercise.cs" />
      <Compile Include="Assets\Scripts\HandInformation.cs" />
      <Compile Include="Assets\Scripts\HandsTrackingHandler.cs" />
      <Compile Include="Assets\Scripts\MainMenuHandler.cs" />
      <Compile Include="Assets\Scripts\OnPointsRightReceivedHandler.cs" />
+     <Compile Include="Assets\Scripts\ShowDistanceSliderValue.cs" />
+     <Compile Include="Assets\Scripts\ShowKeyPointSliderValue.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -124,17 +128,17 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
- </Reference>
  <Reference Include="MSBuildForUnity">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/MSBuildForUnity.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.WindowsMR.Editor">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.XR.WindowsMR.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Analytics.DataPrivacy">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="Unity.XR.WindowsMR">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.XR.WindowsMR.dll</HintPath>
@@ -340,6 +344,12 @@
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.15f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
+ <Reference Include="System.Drawing.Primitives">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Assets/Dependencies/net46/System.Drawing.Primitives.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.Windows.MixedReality.DotNetWinRT">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Assets/Dependencies/net46/InEditor/Microsoft.Windows.MixedReality.DotNetWinRT.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Analytics.Editor">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
@@ -348,12 +358,6 @@
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
- </Reference>
- <Reference Include="System.Drawing.Primitives">
- <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Assets/Dependencies/net46/System.Drawing.Primitives.dll</HintPath>
- </Reference>
- <Reference Include="Microsoft.Windows.MixedReality.DotNetWinRT">
- <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Assets/Dependencies/net46/InEditor/Microsoft.Windows.MixedReality.DotNetWinRT.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.15f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -729,6 +733,8 @@
       <Project>{3C46E569-5CCA-4FF8-863D-2C329932DDC7}</Project>      <Name>Microsoft.MixedReality.Toolkit.Gltf</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.UnityAR.Editor.csproj">
       <Project>{A8C4330B-C9D2-E114-DCB1-D2CF4630FA73}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.UnityAR.Editor</Name>    </ProjectReference>
+    <ProjectReference Include="Microsoft.Windows.MixedReality.DotNetWinRT.Editor.csproj">
+      <Project>{2F3DF774-DC1A-FA90-1501-4B718887867B}</Project>      <Name>Microsoft.Windows.MixedReality.DotNetWinRT.Editor</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.XRSDK.ConfigCheck.csproj">
       <Project>{745A30D2-95F6-4782-A989-DA3D6BDB3D63}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.XRSDK.ConfigCheck</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality.Shared.csproj">
@@ -781,8 +787,6 @@
       <Project>{E5174DB0-3D88-2B01-A4A6-0A8C1348CD6F}</Project>      <Name>Microsoft.MixedReality.Toolkit.Providers.UnityAR.ConfigCheck</Name>    </ProjectReference>
     <ProjectReference Include="Microsoft.MixedReality.Toolkit.Services.InputSimulation.csproj">
       <Project>{DD9964E3-FAFF-0350-135A-9C42D759BFC3}</Project>      <Name>Microsoft.MixedReality.Toolkit.Services.InputSimulation</Name>    </ProjectReference>
-    <ProjectReference Include="Microsoft.Windows.MixedReality.DotNetWinRT.Editor.csproj">
-      <Project>{2F3DF774-DC1A-FA90-1501-4B718887867B}</Project>      <Name>Microsoft.Windows.MixedReality.DotNetWinRT.Editor</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
