@@ -41,7 +41,7 @@ public class HandsTrackingHandler : MonoBehaviour
     }
 
     void OnApplicationQuit () {
-        stopThread ();
+        this.stopThread ();
     }
 
     private void stopThread () {

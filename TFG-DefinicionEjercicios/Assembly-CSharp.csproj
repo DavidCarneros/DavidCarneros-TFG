@@ -143,6 +143,18 @@
  <Reference Include="Unity.XR.WindowsMR">
  <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.XR.WindowsMR.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.ProBuilder">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.Editor">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ProBuilder.AddOns.Editor">
+ <HintPath>C:/Users/David/Desktop/DavidCarneros-TFG/TFG-DefinicionEjercicios/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.15f1/Editor/Data/PlaybackEngines/MetroSupport/Tools/UnityEngine.AIModule.dll</HintPath>
  </Reference>
