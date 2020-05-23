@@ -20,6 +20,16 @@ public class MainMenuHandler : MonoBehaviour
 
     public void DefineExercise(){
         gameObject.SetActive(false);
+        this.DefineExerciseObject.GetComponent<DefineExerciseHandler>().InitComponent();
         this.DefineExerciseObject.SetActive(true);
+    }
+
+    public void Restart(){
+        if(this.DefineExerciseObject.activeSelf){
+            this.DefineExerciseObject.SetActive(false);
+            this.DefineExerciseObject.GetComponent<DefineExerciseHandler>().CleanObjects();
+        }
+        
+        gameObject.SetActive(true);
     }
 }

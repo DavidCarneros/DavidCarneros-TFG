@@ -37,7 +37,23 @@ public class DefineExerciseHandler : MonoBehaviour {
     bool recording;
 
     void Start () {
+        InitComponent();
+    }
+
+    public void InitComponent(){
         exercise = new Exercise ();
+        ExercisePoints = new List<Vector3>();
+        VisualPointsPosition = new List<Vector3>();
+        /*
+        int total = VisualPoints.Count-1;
+        if(total >= 0 ) {
+            for (int i = total; i>= 0 ; i++){
+                GameObject aux = VisualPoints[i];
+                VisualPoints.RemoveAt (i);
+                Destroy (aux);
+            }
+        }
+        */
         recording = false;
         back = false;
         this.TorusObject.SetActive (false);
@@ -45,6 +61,17 @@ public class DefineExerciseHandler : MonoBehaviour {
         this.HandSelectorMenu.SetActive (true);
         this.PointDistanceMenu.SetActive (false);
         this.SaveMenu.SetActive (false);
+    }
+
+    public void CleanObjects(){
+        int total = VisualPoints.Count-1;
+        if(total >= 0 ) {
+            for (int i = total; i>= 0 ; i--){
+                GameObject aux = VisualPoints[i];
+                VisualPoints.RemoveAt (i);
+                Destroy (aux);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -144,23 +171,28 @@ public class DefineExerciseHandler : MonoBehaviour {
             // Torus
             if (i != 0 && (i % bt == (exercise.keyPoint))) {
                 var before = this.exercise.points[i + 1];
-                var vector = before - this.exercise.points[i];
+                var vector = before - this.exercise.points[i-1];
 
                 var rotation = Quaternion.LookRotation (vector.normalized);
                 Quaternion newRotation = rotation * Quaternion.Euler (-180, 90, 90);
-                Vector3 torusPosition;
-
-                if (newRotation.z != 0.0 || newRotation.w != 0.0) {
-                    torusPosition = new Vector3 (this.exercise.points[i].x, this.exercise.points[i].y - 0.05f, this.exercise.points[i].z) + Camera.main.transform.position;
-                } else {
-                    torusPosition = new Vector3 (this.exercise.points[i].x, this.exercise.points[i].y - 0.05f, this.exercise.points[i].z) + Camera.main.transform.position;
+                Vector3 torusPosition = new Vector3 (this.exercise.points[i].x, this.exercise.points[i].y, this.exercise.points[i].z) + Camera.main.transform.position;
+                
+                if(vector.normalized.x != 0.0 || vector.normalized.z != 0.0){
+                  torusPosition = torusPosition + new Vector3(0,-0.05f,0);
                 }
-                Debug.Log(newRotation.z + "  " + newRotation.w);
+                if(vector.normalized.y != 0.0){
+                    if(vector.normalized.y > 0.0){
+                        torusPosition = torusPosition + new Vector3(0,0,+0.05f);    
+                    }
+                    else {
+                        torusPosition = torusPosition + new Vector3(0,0,-0.05f);
+                    }
+                }
 
                 GameObject torusPoint = Instantiate (this.TorusObject, torusPosition, Quaternion.identity);
                 torusPoint.tag = "Torus";
                 torusPoint.transform.rotation = newRotation;
-                Debug.Log (i + " -- " + torusPoint.transform.rotation);
+                Debug.Log (i + " -- " + vector.normalized);
                 torusPoint.transform.parent = ViewExercise.transform;
                 torusPoint.SetActive (true);
                 this.VisualPoints.Add (torusPoint);
