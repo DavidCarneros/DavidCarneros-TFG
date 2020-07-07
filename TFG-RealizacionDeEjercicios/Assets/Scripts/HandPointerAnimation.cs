@@ -53,5 +53,7 @@ public class HandPointerAnimation : MonoBehaviour
             alive = false;
             //gameObject.SetActive(false);
         }
+
+        gameObject.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
     }
 }

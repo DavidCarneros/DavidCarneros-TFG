@@ -1,37 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class OnPointsRightReceivedHandler : MonoBehaviour {
-
-    //public GameObject handPointer;
+public class OnPointsLeftReceivedHandler : MonoBehaviour
+{
     Vector3 position;
     Color color;
-    int confiance = 3;
+    int confiance;
 
-    void Start () {
+    void Start()
+    {
         gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
-    void Update(){
+    void Update()
+    {
         gameObject.transform.localPosition = position;
         gameObject.GetComponent<MeshRenderer>().material.color = color;
     }
 
-    void HandleOnPointsRightReceived (HandInformation information) {
-        position = information.position;
+    void HandleOnPointsLeftReceived(HandInformation information)
+    {
         confiance = information.confianceLevel;
+        position = information.position;
         // handPointer.transform.rotation = information.quaternion;
-        switch (information.confianceLevel) {
+        switch (information.confianceLevel)
+        {
             case 0:
                 color = Color.red;
                 break;
             case 1:
-                color =  Color.yellow;
+                color = Color.yellow;
                 break;
             case 2:
-                color =  Color.green;
+                color = Color.green;
                 break;
             case 3:
                 color = Color.blue;
@@ -43,14 +45,14 @@ public class OnPointsRightReceivedHandler : MonoBehaviour {
 
     public int GetConfiance() { return confiance; }
 
-    void OnEnable () {
-        HandsTrackingHandler.OnPointsRightReceived += HandleOnPointsRightReceived;
+    void OnEnable()
+    {
+        HandsTrackingHandler.OnPointsLeftReceived += HandleOnPointsLeftReceived;
     }
 
-    void OnDisable () {
-        HandsTrackingHandler.OnPointsRightReceived -= HandleOnPointsRightReceived;
+    void OnDisable()
+    {
+        HandsTrackingHandler.OnPointsLeftReceived -= HandleOnPointsLeftReceived;
     }
-
-    
 
 }

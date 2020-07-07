@@ -21,10 +21,13 @@ public class HandsTrackingHandler : MonoBehaviour
     // Thread recive information 
     Thread receiverThread;
     UdpClient Server;
-    Vector3 kinectPosition;
 
     public int port;
     public GameObject kinectObject;
+    public GameObject HandsTrackingObject;
+    public String ActiveHand;
+    public GameObject RightPointer;
+    public GameObject LeftPointer;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +35,15 @@ public class HandsTrackingHandler : MonoBehaviour
         receiverThread = new Thread (new ThreadStart(ReceivePointData));
         receiverThread.IsBackground = true;
         receiverThread.Start();
+        this.ActiveHand = "Right";
+        this.LeftPointer.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        kinectPosition = kinectObject.transform.position;
+        HandsTrackingObject.transform.position = kinectObject.transform.position;
+        HandsTrackingObject.transform.eulerAngles = kinectObject.transform.eulerAngles + new Vector3(180, 0, 0);
     }
 
     void OnApplicationQuit () {
@@ -51,6 +57,33 @@ public class HandsTrackingHandler : MonoBehaviour
         Server.Close ();
     }
 
+    public void SetHand(string Hand)
+    {
+        this.ActiveHand = Hand;
+        if (Hand == "Left")
+        {
+            this.LeftPointer.SetActive(true);
+            this.RightPointer.SetActive(false);
+        }
+        else
+        {
+            this.LeftPointer.SetActive(false);
+            this.RightPointer.SetActive(true);
+        }
+    }
+
+    public GameObject GetActiveHand()
+    {
+        if (this.ActiveHand == "Left")
+        {
+            return this.LeftPointer;
+        }
+        else
+        {
+            return this.RightPointer;
+        }
+    }
+
 
     private void ReceivePointData () {
         Server = new UdpClient (port);
@@ -60,15 +93,23 @@ public class HandsTrackingHandler : MonoBehaviour
                 byte[] data = Server.Receive (ref anyIp);
                 string jsonString = Encoding.UTF8.GetString (data);
                 HandsPacket packet = JsonUtility.FromJson<HandsPacket> (jsonString);
-                Debug.Log("PACKET");
-                // Solo derecha de momento 
-                //Vector3 kinectPosition = this.kinectObject.transform.position;
-                Vector3 handPoint = packet.right + kinectPosition;
-                HandInformation information = new HandInformation(handPoint, packet.q_right, packet.right_level);
-                // lanzamos evento
-                if(OnPointsRightReceived!=null){
-                    OnPointsRightReceived(information);
-                    Debug.Log("Lanzado evento");
+
+
+                Debug.Log("Packete recivido");
+
+                Vector3 handPointRight = packet.right;
+                HandInformation informationRight = new HandInformation(handPointRight, packet.q_right, packet.right_level);
+
+                Vector3 handPointLeft = packet.left;
+                HandInformation informationLeft = new HandInformation(handPointLeft, packet.q_left, packet.left_level);
+
+                if (OnPointsRightReceived != null)
+                {
+                    OnPointsRightReceived(informationRight);
+                }
+                if (OnPointsLeftReceived != null)
+                {
+                    OnPointsLeftReceived(informationLeft);
                 }
 
             } catch (Exception err) {
