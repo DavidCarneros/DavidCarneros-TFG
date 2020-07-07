@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dRn+2QY+ID/Jvh3TDJGJxKZfDIn0aFljv5tKvEb/lFeA7HPOvsYB2j5uxhbo1iYU0nGjhAkjFLpY3nbmg3LT9w==",
+  "dgSpecHash": "sRbT8lA0K6G2cgcdQp6Ix761z8OJ1KiUrPYsDyCqtE+mPWdnKV4G++AKotbuVTbosefNsgqNU8BRu6pAx3jhTQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\David\\.nuget\\packages\\microsoft.windows.mixedreality.dotnetwinrt\\0.5.1045\\microsoft.windows.mixedreality.dotnetwinrt.0.5.1045.nupkg.sha512",
-    "C:\\Users\\David\\.nuget\\packages\\msbuildforunity\\0.9.1-123842\\msbuildforunity.0.9.1-123842.nupkg.sha512",
-    "C:\\Users\\David\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512"
+    "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.windows.mixedreality.dotnetwinrt\\0.5.1045\\microsoft.windows.mixedreality.dotnetwinrt.0.5.1045.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\msbuildforunity\\0.9.1-123842\\msbuildforunity.0.9.1-123842.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

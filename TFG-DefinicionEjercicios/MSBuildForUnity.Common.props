@@ -2,9 +2,9 @@
   
   <!-- These are specific to this Unity project and can't be overridden -->
   <PropertyGroup>
-    <UnityProjectAssetsPath>C:\Users\David\Desktop\DavidCarneros-TFG\TFG-DefinicionEjercicios\Assets</UnityProjectAssetsPath>
+    <UnityProjectAssetsPath>C:\Users\Usuario\Desktop\DavidCarneros-TFG\TFG-DefinicionEjercicios\Assets</UnityProjectAssetsPath>
     
-    <_MSBuildForUnityGeneratedOutputDirectory>C:\Users\David\Desktop\DavidCarneros-TFG\TFG-DefinicionEjercicios\MSBuild</_MSBuildForUnityGeneratedOutputDirectory>
+    <_MSBuildForUnityGeneratedOutputDirectory>C:\Users\Usuario\Desktop\DavidCarneros-TFG\TFG-DefinicionEjercicios\MSBuild</_MSBuildForUnityGeneratedOutputDirectory>
     <MSBuildForUnityGeneratedProjectDirectory>$(_MSBuildForUnityGeneratedOutputDirectory)\Projects</MSBuildForUnityGeneratedProjectDirectory>
   </PropertyGroup>
   
@@ -23,7 +23,7 @@
     
     <UnityMajorVersion>2018</UnityMajorVersion>
     <UnityMinorVersion>4</UnityMinorVersion>
-    <UnityEditorInstallPath>C:\Program Files\Unity\Hub\Editor\2018.4.15f1\Editor</UnityEditorInstallPath>
+    <UnityEditorInstallPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\2018.4.15f1\Editor</UnityEditorInstallPath>
   </PropertyGroup>
   
   <PropertyGroup>

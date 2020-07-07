@@ -1,24 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj": {}
   },
   "projects": {
-    "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj",
         "projectName": "DotNetAdapter",
-        "projectPath": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\.obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\.obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\NuGet.Config",
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,25 +46,22 @@
               "version": "[0.5.1045, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj",
         "projectName": "TFG-DefinicionEjercicios.Dependencies.msb4u",
-        "projectPath": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\MSBuild\\Output\\obj\\Dependencies\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\TFG-DefinicionEjercicios.Dependencies.msb4u.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\MSBuild\\Output\\obj\\Dependencies\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\NuGet.Config",
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,8 +75,8 @@
         "frameworks": {
           "net46": {
             "projectReferences": {
-              "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj": {
-                "projectPath": "C:\\Users\\David\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj",
+              "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Desktop\\DavidCarneros-TFG\\TFG-DefinicionEjercicios\\Assets\\MixedRealityToolkit.Providers\\WindowsMixedReality\\Shared\\DotNetAdapter\\DotNetAdapter.csproj",
                 "privateAssets": "analyzers"
               }
             }
@@ -104,7 +98,7 @@
               "version": "[0.9.1-*, 0.9.1]"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
