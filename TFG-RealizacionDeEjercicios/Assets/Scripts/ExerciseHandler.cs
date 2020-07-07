@@ -8,15 +8,16 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class ExerciseHandler : MonoBehaviour {
-    public GameObject HelpText;
+
     public GameObject RoutineHUD;
-    public GameObject NextRepetitionsText;
+    public GameObject TextController;
     // Ejercicio
     public Exercise exercise;
     public Routine routine;
 
     // HandPointer
     public GameObject HandPointer;
+    public GameObject HandsTrackingHandler;
     //public GameObject Point;
 
     // Exercise Object 
@@ -43,6 +44,11 @@ public class ExerciseHandler : MonoBehaviour {
     DateTime endAt;
     DateTime previousDateTime;
 
+    // Debug List
+    List<Vector3> pointsTesting;
+    bool tesing;
+    int testingIndex;
+
     // Start is called before the first frame update
     void Start () {
         index = 0;
@@ -50,25 +56,33 @@ public class ExerciseHandler : MonoBehaviour {
         isBack = false;
         ExerciseResultList = new List<ExerciseResult> ();
         checkingFail = false;
+        tesing = false;
+        testingIndex = 0;
 
     }
 
     // Update is called once per frame
     void Update () {
         if (exerciseStarted) {
-            ComparePoints ();
+            if(GetConfiance() >= 2)
+            {
+                ComparePoints();
+            }
         }
     }
+
 
     public void SetExerciseAndStart (Routine routine) {
         this.routine = routine;
         this.exercise = routine.exercise;
+        this.HandsTrackingHandler.GetComponent<HandsTrackingHandler>().SetHand(this.exercise.hand);
+        this.HandPointer = this.HandsTrackingHandler.GetComponent<HandsTrackingHandler>().GetActiveHand();
         this.isBack = false;
         index = 0;
         repet = 0;
         DrawExercise ();
         StartEndExercise (true);
-        RoutineHUD.GetComponent<HUDHandler> ().SetTextExercise (GetExerciseTextHub ());
+        //RoutineHUD.GetComponent<HUDHandler> ().SetTextExercise (GetExerciseTextHub ());
         InitActualResult ();
         this.ExerciseResultList = new List<ExerciseResult> ();
     }
@@ -87,6 +101,10 @@ public class ExerciseHandler : MonoBehaviour {
     }
 
     public void FinishExercise () {
+        ///
+        this.tesing = false;
+        StartCoroutine(PostTestingData(this.pointsTesting));
+        ///
         this.endAt = DateTime.Now;
         this.actualResult.endAt = this.endAt.ToString ("o", CultureInfo.InvariantCulture);
         this.actualResult.total_time = (this.endAt - this.startAt).TotalSeconds;
@@ -107,7 +125,8 @@ public class ExerciseHandler : MonoBehaviour {
             InitActualResult ();
             StartCoroutine (NextRepetitionSequency ());
         } else {
-            gameObject.GetComponent<RoutineHandler> ().NextRoutine (ExerciseResultList.ToArray ());
+            //gameObject.GetComponent<RoutineHandler> ().NextRoutine (ExerciseResultList.ToArray ());
+            gameObject.GetComponent<RoutineHandler>().FinishRoutine(ExerciseResultList.ToArray());
         }
     }
 
@@ -115,45 +134,63 @@ public class ExerciseHandler : MonoBehaviour {
         repet++;
         index = 0;
         isBack = false;
-        this.NextRepetitionsText.SetActive (true);
-        this.NextRepetitionsText.transform.position = Camera.main.transform.position + new Vector3 (0f, 0f, 0.4f);
+
+        this.TextController.SetActive(true);
+        this.TextController.GetComponent<TextHandler>().SetText("RepetitionText");
+        this.TextController.GetComponent<TextHandler>().SetExerciseRepetitions(routine.repetitions - (repet));        
+        //this.TextController.transform.position = Camera.main.transform.position + new Vector3 (0f, 0f, 0.4f);
+
         yield return new WaitForSeconds (3);
-        this.NextRepetitionsText.SetActive (false);
+        this.TextController.SetActive (false);
+        this.TextController.GetComponent<TextHandler>().DisableLast();
+
         DrawExercise ();
         StartEndExercise (true);
-        RoutineHUD.GetComponent<HUDHandler> ().SetTextExercise (GetExerciseTextHub ());
+        this.testingIndex = 0;
+
+        RoutineHUD.GetComponent<HUDHandler>().RestartCounters();
         yield return null;
     }
 
-    ////////////////////////////////////////////
-    ////////////////////////////////////////////
-    ////////////////////////////////////////////
-    public void DEBUG () {
-        StartCoroutine (GetExerciseRequest ());
-    }
-
-    IEnumerator GetExerciseRequest () {
-        UnityWebRequest webRequest = new UnityWebRequest ("http://192.168.1.163:3000/exercise/14", "GET");
-        webRequest.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer ();
-
-        UnityWebRequestAsyncOperation requestHandler = webRequest.SendWebRequest ();
-        requestHandler.completed += delegate (AsyncOperation pOperation) {
-            string jsonString = webRequest.downloadHandler.text;
-            Exercise exer = JsonUtility.FromJson<Exercise> (jsonString);
-            this.exercise = exer;
-            DrawExercise ();
-            StartEndExercise (true);
-            index = 0;
-        };
-
-        yield return null;
-    }
-    ////////////////////////////////////////////
-    ////////////////////////////////////////////
-    ////////////////////////////////////////////
 
     public void StartEndExercise (bool startEnd) {
         exerciseStarted = startEnd;
+    }
+
+    public ExerciseResult[] GetExerciseResultList()
+    {
+        return this.ExerciseResultList.ToArray(); 
+    }
+
+    public void StopExercise()
+    {
+        exerciseStarted = false;
+        this.endAt = DateTime.Now;
+        this.actualResult.endAt = this.endAt.ToString("o", CultureInfo.InvariantCulture);
+        this.actualResult.total_time = (this.endAt - this.startAt).TotalSeconds;
+        int total_failures = 0;
+        for (int i = 0; i < this.actualResult.failures.Length; i++)
+        {
+            total_failures += this.actualResult.failures[i];
+        }
+        if (this.exercise.back)
+        {
+            for (int i = 0; i < this.actualResult.failures_back.Length; i++)
+            {
+                total_failures += this.actualResult.failures_back[i];
+            }
+        }
+        if(this.VisualPoints.Count != 0)
+        {
+            int total = this.VisualPoints.Count - 1;
+            for(int i = total; i > 0; i--)
+            {
+                GameObject obj = this.VisualPoints[i];
+                this.VisualPoints.RemoveAt(i);
+                Destroy(obj);
+            }
+        }
+
     }
 
     // Draw exercise
@@ -182,7 +219,7 @@ public class ExerciseHandler : MonoBehaviour {
                 Quaternion newRotation = rotation * Quaternion.Euler (-180, 90, 90);
                 Vector3 torusPosition = new Vector3 (this.exercise.points[i].x, this.exercise.points[i].y, this.exercise.points[i].z) + Camera.main.transform.position;
                 Vector3 centralPoint = this.exercise.points[i] + Camera.main.transform.position;
-
+                /*
                 if (vector.normalized.x != 0.0 || vector.normalized.z != 0.0) {
                     torusPosition = torusPosition + new Vector3 (0, -0.05f, 0);
                 }
@@ -193,6 +230,7 @@ public class ExerciseHandler : MonoBehaviour {
                         torusPosition = torusPosition + new Vector3 (0, 0, -0.05f);
                     }
                 }
+                */
 
                 GameObject torusPoint = Instantiate (this.TorusObject, torusPosition, Quaternion.identity);
                 torusPoint.tag = "Torus";
@@ -221,9 +259,40 @@ public class ExerciseHandler : MonoBehaviour {
 
     }
 
+    public int GetConfiance()
+    {
+        if (this.exercise.hand == "Left")
+        {
+            return this.HandPointer.GetComponent<OnPointsLeftReceivedHandler>().GetConfiance();
+        }
+        else
+        {
+            return this.HandPointer.GetComponent<OnPointsRightReceivedHandler>().GetConfiance();
+        }
+    }
+
     // Compare function 
     public void ComparePoints () {
         Vector3 handPointerPosition = HandPointer.transform.position;
+        if (testingIndex == 0)
+        {
+            this.pointsTesting = new List<Vector3>();
+            this.pointsTesting.Add(handPointerPosition - Camera.main.transform.position);
+            this.testingIndex++;
+            this.tesing = true;
+        }
+        else
+        {
+            if (tesing)
+            {
+                Vector3 HandPositionSave = handPointerPosition - Camera.main.transform.position;
+                if (Math.Abs(Vector3.Distance(HandPositionSave, this.pointsTesting[testingIndex - 1])) >= 0.02)
+                {
+                    this.pointsTesting.Add(HandPositionSave);
+                    this.testingIndex++;
+                }
+            }
+        }
 
         if (Vector3.Distance (handPointerPosition, this.VisualPointsPosition[index]) <= 0.03) {
             acuFail = 0;
@@ -254,6 +323,7 @@ public class ExerciseHandler : MonoBehaviour {
             this.HandPointer.GetComponent<HandPointerAnimation> ().StartAnimation ();
             if (obj.tag == "Torus") {
                 obj.GetComponent<TorusHandler> ().StartAnimation ();
+                this.RoutineHUD.GetComponent<HUDHandler>().IncrementTorusCounter();
                 for (int i = index + 1;
                     ((i < (index + exercise.keyPoint + 1)) && (i < VisualPointsPosition.Count)); i++) {
                     this.VisualPoints[i].SetActive (true);
@@ -261,7 +331,7 @@ public class ExerciseHandler : MonoBehaviour {
 
                 if (index + 1 < this.VisualPoints.Count) {
                     if (this.VisualPoints[index + 1].tag == "Sphere") {
-                        this.VisualPoints[index + 1].transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+                        this.VisualPoints[index + 1].transform.localScale = new Vector3 (0.013f, 0.013f, 0.013f);
                         this.VisualPoints[index + 1].GetComponent<MeshRenderer> ().material.color = Color.yellow;
                     }
                 }
@@ -270,10 +340,10 @@ public class ExerciseHandler : MonoBehaviour {
                 gameObject.GetComponent<AudioSource> ().Play ();
                 this.VisualPoints[index].SetActive (false);
                 Destroy (this.VisualPoints[index]);
-
+                this.RoutineHUD.GetComponent<HUDHandler>().IncrementPointCounter();
                 if (index + 1 < this.VisualPoints.Count) {
                     if (this.VisualPoints[index + 1].tag == "Sphere") {
-                        this.VisualPoints[index + 1].transform.localScale = new Vector3 (0.02f, 0.02f, 0.02f);
+                        this.VisualPoints[index + 1].transform.localScale = new Vector3(0.013f, 0.013f, 0.013f);
                         this.VisualPoints[index + 1].GetComponent<MeshRenderer> ().material.color = Color.yellow;
                     } else {
                         this.VisualPoints[index + 1].GetComponent<MeshRenderer> ().material.color = Color.yellow;
@@ -310,13 +380,11 @@ public class ExerciseHandler : MonoBehaviour {
                 checkingFail = false;
             }
         }
-        Debug.Log(acuFail);
         if(acuFail >= 3){
             if (this.VisualPoints[index].tag == "torus"){
                 //this.VisualPoints[index].GetComponent<TorusHandler>().Blink();
             }
             else {
-                Debug.Log("ACTIVADO PARPADEO");
                 this.VisualPoints[index].GetComponent<PointHandler>().Blink();
             }
             acuFail = 0;
@@ -351,19 +419,20 @@ public class ExerciseHandler : MonoBehaviour {
 
             // Torus
             if (i != 0 && (i % bt == (exercise.keyPoint))) {
-                var before = this.exercise.points[i];
-                if (i + 1 >= this.exercise.points.Count) {
-                    before = this.exercise.points[i];
+                var before = exercisePointReverse[i];
+                if (i + 1 >= exercisePointReverse.Count) {
+                    before = exercisePointReverse[i];
                 } else {
-                    before = this.exercise.points[i + 1];
+                    before = exercisePointReverse[i + 1];
                 }
                 var vector = before - exercisePointReverse[i - 1];
 
                 var rotation = Quaternion.LookRotation (vector.normalized);
                 Quaternion newRotation = rotation * Quaternion.Euler (-180, 90, 90);
-                Vector3 torusPosition = new Vector3 (exercisePointReverse[i].x, exercisePointReverse[i].y, exercisePointReverse[i].z) + Camera.main.transform.position;
+                Vector3 torusPosition = new Vector3(exercisePointReverse[i].x, exercisePointReverse[i].y, exercisePointReverse[i].z) + Camera.main.transform.position;
                 Vector3 centralPoint = exercisePointReverse[i] + Camera.main.transform.position;
 
+                /*
                 if (vector.normalized.x != 0.0 || vector.normalized.z != 0.0) {
                     torusPosition = torusPosition + new Vector3 (0, -0.05f, 0);
                 }
@@ -374,6 +443,7 @@ public class ExerciseHandler : MonoBehaviour {
                         torusPosition = torusPosition + new Vector3 (0, 0, -0.05f);
                     }
                 }
+                */
 
                 GameObject torusPoint = Instantiate (this.TorusObject, torusPosition, Quaternion.identity);
                 torusPoint.tag = "Torus";
@@ -385,7 +455,7 @@ public class ExerciseHandler : MonoBehaviour {
             }
             // Point
             else {
-                Vector3 pointPosition = exercisePointReverse[i] + Camera.main.transform.position;
+                Vector3 pointPosition = exercisePointReverse[i];// + Camera.main.transform.position;
                 GameObject spherePoint = Instantiate (this.PointObject, pointPosition, Quaternion.identity);
                 spherePoint.transform.parent = ViewExercise.transform;
                 spherePoint.tag = "Sphere";
@@ -402,4 +472,37 @@ public class ExerciseHandler : MonoBehaviour {
     string GetExerciseTextHub () {
         return (repet + 1) + "/" + routine.repetitions;
     }
+
+    /// 
+    IEnumerator PostTestingData(List<Vector3> testingData)
+    {
+        UnityWebRequest webRequest = new UnityWebRequest("http://phyreup.francecentral.cloudapp.azure.com:3000/feedback", "POST");
+        TestingData testingDataSend = new TestingData(testingData);
+        string jsonString = JsonUtility.ToJson(testingDataSend);
+        byte[] encodedPayload = new System.Text.UTF8Encoding().GetBytes(jsonString);
+        webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(encodedPayload);
+        webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        webRequest.SetRequestHeader("Content-Type", "application/json");
+        webRequest.SetRequestHeader("cache-control", "no-cache");
+
+        UnityWebRequestAsyncOperation requestHandel = webRequest.SendWebRequest();
+        requestHandel.completed += delegate (AsyncOperation pOperation) {
+            Debug.Log(webRequest.responseCode);
+            Debug.Log(webRequest.downloadHandler.text);
+        };
+
+        yield return null;
+    }
+}
+
+[Serializable]
+public class TestingData
+{
+    public Vector3[] items;
+
+    public TestingData(List<Vector3> items)
+    {
+        this.items = items.ToArray();
+    }
+
 }
